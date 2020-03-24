@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.htxx.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.htxx.entity.User">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+    </resultMap>
+
+    <select id="selectAll" resultType="com.htxx.entity.User" parameterType="com.htxx.entity.User">
+        select * from userinfo
+    </select>
+
+    <select id="selectNameById" resultType="java.lang.String" parameterType="java.lang.String">
+        select username from userinfo where id = #{_param}
+    </select>
+
+    <select id="login" resultType="int" parameterType="com.htxx.entity.User">
+        select count(*) from userinfo where username = #{username} and password = #{password}
+    </select>
+
+</mapper>
