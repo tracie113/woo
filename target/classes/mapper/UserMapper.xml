@@ -15,8 +15,12 @@
         select username from userinfo where id = #{_param}
     </select>
 
-    <select id="login" resultType="int" parameterType="com.htxx.entity.User">
-        select count(*) from userinfo where username = #{username} and password = #{password}
+    <select id="login" resultType="com.htxx.entity.User" parameterType="com.htxx.entity.User">
+        select *  from userinfo where username = #{username} and password = #{password}
+    </select>
+
+    <select id="selectPasswordByUsername" parameterType="java.lang.String" resultType="java.lang.String">
+        select password from userinfo where username = #{username}
     </select>
 
 </mapper>

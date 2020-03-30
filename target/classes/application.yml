@@ -1,14 +1,29 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/woo?useUnicode=true&characterEncoding=utf8
     username: root
     password: aisino2017
     type: com.alibaba.druid.pool.DruidDataSource
   mvc:
     dispatch-options-request: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
+    timeout: 3000
+  session:
+    store-type: redis
+    timeout: 600
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.htxx.entity
 server:
   port: 8090
+

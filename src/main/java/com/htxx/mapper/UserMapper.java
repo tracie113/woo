@@ -9,5 +9,6 @@ import java.util.List;
 public interface UserMapper {
     List<User> selectAll();
     String selectNameById(String id);
-    int login(User u);
+    User login(User u);
+    String selectPasswordByUsername(String username);
 }

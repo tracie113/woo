@@ -25,12 +25,17 @@ public class UserServiceImpl implements UserServiceI {
     }
 
     @Override
+    public String selectPasswordByUsername(String username) {
+        return userMapper.selectPasswordByUsername(username);
+    }
+
+    @Override
     public String hello() {
         return "Hello World";
     }
 
     @Override
-    public boolean login(User u){
-        return userMapper.login(u)>0 ? true : false;
+    public User login(User u){
+        return userMapper.login(u);
     }
 }

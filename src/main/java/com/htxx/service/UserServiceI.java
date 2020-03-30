@@ -8,5 +8,6 @@ public interface UserServiceI {
     String hello();
     List<User> selectAll();
     String selectNameById(String id);
-    boolean login(User u);
+    String selectPasswordByUsername(String username);
+    User login(User u);
 }
